@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&display=swap');
+
+$bg: #2c2c2c;
+$appetizer: #ffe3bb;
+$red-sauce: #bd350f;
+$yellow-cheddar: #ffab24;
+$fresh-green: #9ca224;
+$brown: #461608;
+$orange: #d07f1e;
+$Oswald:'Oswald', sans-serif;
+
+.grid-center {
+    display: grid;
+    place-items: center;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.size-app{
+    width: 100%;
+    height: 600px;
+}
+.cta{
+    width: 240px;
+    height: 43px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-family: $Oswald;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: white;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+}
+.span-bg-setup{
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.item-setup{
+    width: 20px;
+    height: 20px;
+    @extend .span-bg-setup;
+    background-size: contain;
+    margin-right: 10px;
+}
+.input-setup{
+    width: 250px;
+    height: 32px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+.placeholder{
+    color: $orange;
+    font-family: $Oswald;
+    font-style: italic;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    background-color: $bg;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    @extend .grid-center;
+    font-family: $Oswald;
+}
+.phone {
+    position: relative;
+    border: 8px solid black;
+    border-radius: 40px;
+    width: 300px;
+    height: 600px;
+    background: $appetizer;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .loader {
+    @extend .size-app;
+    @extend .flex-center;
+    background: $appetizer;
+    position: absolute;
+    animation: loader 5s linear forwards;
+    z-index: 11;
+    @keyframes loader {
+        0% {
+            opacity: 1;
+            visibility: visible;
+        }
+        95% {
+            opacity: 1;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        }
+    .logo-loader {
+        position: absolute;
+        top: calc(50% - 71.5px);
+        left: calc(50% - 102.5px);
+        right: 0;
+        bottom: 0;
+        height: 143px;
+        width: 205px;
+        @extend .span-bg-setup;
+        background-image: url("/img/logo.svg");
+        background-size: contain;
+        animation: logoLoader 3s ease-in-out forwards;
+        }
+    @keyframes logoLoader {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        25% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        }
+    }
+
+    .tyc{
+        @extend .size-app;
+        @extend .grid-center;
+        padding:  80px 0;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 10;
+        .tyc-img{
+            width: 153.2px;
+            height: 224.92px;
+            margin:0;
+            display: inline-block;
+            background-image: url('/img/tyc-img.svg');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .tyc-text{
+            margin:0;
+            margin-bottom: 70px;
+            text-align: center;
+            color: $orange;
+            a{
+                color: $orange;
+            }
+        }
+        .tyc-btn{
+            @extend .cta;
+            background: $orange;
+        }
+    }
+    .map-location{
+        position: relative;
+        @extend .size-app;
+        @extend .span-bg-setup;
+        background-image: url('/img/map.svg');
+        background-size: cover;
+        z-index: 9;
+        .menu{
+            position: absolute;
+            top: 60px;
+            right: 0;
+            left: 20px;
+            bottom:0;
+            height: 15px;
+            width: 42px;
+            @extend .span-bg-setup;
+            background-image: url('/img/menu.svg');
+            background-size: contain;
+            cursor: pointer;
+        }
+        .location-container{
+            width: 80%;
+            height: 150px;
+            @extend .grid-center;
+            position: absolute;
+            top: calc(40% - 75px);
+            left: calc(50% - 113px);
+            right: 0;
+            bottom: 0;
+            .location-text{
+                text-align: center;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: white;
+                font-weight: lighter;
+                background-color: $orange;
+                padding: 10px 4px;
+                border-radius: 10px;
+                position: relative;
+            }
+            .location-text::after{
+                content: '';
+                display: block;
+                position: absolute;
+                height: 0px;
+                width: 0px;
+                top:38px;
+                left: calc(50% - 10px);
+                border-top: 10px solid $orange;
+                border-right: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+            }
+            .location-pin{
+                width: 30px;
+                height: 40px;
+                @extend .span-bg-setup;
+                background-image: url('/img/pin.svg');
+                background-size: contain;
+            }
+        }
+        .gps{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: calc(90% - 10px);
+            right: 0;
+            bottom: 0;
+            top: 52%;
+            @extend .span-bg-setup;
+            background-image: url('/img/gps.svg');
+            background-size: contain;
+            cursor: pointer;
+        }
+        .location-flap{
+            position: absolute;
+            @extend .grid-center;
+            left: 0;
+            right: 0;
+            top: calc(100% - 250px);
+            bottom: 0;
+            width: 100%;
+            height: 250px;
+            padding: 16px 0;
+            box-sizing: border-box;
+            background: $appetizer;
+            .flap--heading{
+                text-transform: uppercase;
+                font-size: 14px;
+                color: $fresh-green;
+                margin: 0;
+            }
+            .flap--input{
+                margin-bottom: 30px;
+                @extend .input-setup;
+            }
+            ::placeholder{
+                @extend .placeholder;
+            }
+            .flap--btn{
+                color: $brown;
+                text-decoration: none;
+                margin-bottom: 50px;
+            }
+    }
+    }
+    .lateral-menu{
+        position: absolute;
+        @extend .size-app;
+        .overlay{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            @extend .size-app;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .flap-menu{
+            position: relative;
+            width: 70%;
+            height: 600px;
+            background: $appetizer;
+            .close{
+                width: 20px;
+                height: 20px;
+                @extend .span-bg-setup;
+                background: url('/img/close.svg');
+                background-size: contain;
+                position: absolute;
+                top: 5%;
+                left: calc( 100% - 30px);
+                right: 0;
+                bottom: 0;
+            }
+            .flap-menu--logo{
+                position: absolute;
+                height: 160px;
+                width: 100px;
+                top: 8%;
+                left: calc(50% - 50px);
+                right: 0;
+                bottom:0;
+                @extend .span-bg-setup;
+                background-image: url('/img/logo-menu.svg');
+                background-size: contain;
+            }
+            .menu-list{
+                position: absolute;
+                top: 30%;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                margin: 30px 30px 0 ;
+                width: 80%;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                justify-content: space-around;
+                li{
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        color: $orange;
+                        font-family: $Oswald;
+                        text-transform: uppercase;
+                        .item1{
+                            @extend .item-setup;
+                            background-image: url('/img/user.svg');
+                        }
+                        .item2{
+                            @extend .item-setup;
+                            background-image: url('/img/orders.svg');
+                        }
+                        .item3{
+                            @extend .item-setup;
+                            background-image: url('/img/wpp.svg');
+                        }
+                    }
+                }
+            }
+            .log{
+                text-decoration: none;
+                color: $orange;
+                text-transform: uppercase;
+                font-size: 14px;
+                position: absolute;
+                top: 90%;
+                right: 0;
+                left: 5%;
+                bottom: 0;
+            }
+        }
+    }
+    .location-more-info{
+        position: relative;
+        @extend .size-app;
+        background: $appetizer;
+        @extend .grid-center;
+        .more-info--close{
+            @extend .span-bg-setup;
+            width: 10px;
+            height: 10px;
+            background-image: url('/img/close.svg');
+            position: absolute;
+            top: 10%;
+            left: 30px;
+            right: 0;
+            bottom: 0;
+        }
+        .inputs-container{
+            width: 100%;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .input1,.input2{
+                @extend .input-setup;
+                margin: 20px 10px;
+            }
+            ::placeholder{
+                @extend .placeholder;
+            }
+            p{
+                position: absolute;
+                font-size: 10px;
+                color: #8A776C;
+            }
+            .text-input1{
+            top: 28%;
+            right: 0;
+            left: 80%;
+            bottom: 0;
+            }
+            .text1-input2{
+                width: 100px;
+                top: 40%;
+                right: 0;
+                left: 10%;
+                bottom: 0;
+            }
+            .text2-input2{
+                top: 40%;
+                right: 0;
+                left: 80%;
+                bottom: 0;
+            }
+        }
+        .festoon{
+            position:absolute;
+            top: 60%;
+            right: 0;
+            left: calc(50% - 100px);
+            bottom: 0;
+            width: 200px;
+            height: 50px;
+            @extend .span-bg-setup;
+            background-image: url('/img/festoon.svg');
+            background-size: contain;
+        }
+        .location-more-info--btn{
+            @extend .cta;
+            background: $orange;
+        }
+    }
+    .login{
+        @extend .size-app;
+        @extend .grid-center;
+        background: $appetizer;
+        padding: 80px 0;
+        .top-container{
+            
+            .login-text1{
+                color: $fresh-green;
+                text-transform: uppercase;
+                text-align: center;
+                margin: 0;
+            }
+            .login-logo{
+                width: 150px; 
+                height: 123px;
+                @extend .span-bg-setup;
+                background-image: url('/img/logo-login.svg');
+                background-size: contain;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .login-text2{
+            font-size: 14px;
+            text-transform: uppercase ;
+            color: $orange;
+            margin-top: 100px;
+        }
+        .btns-container{
+            width: 100%;
+            height: 150px;
+            @extend .grid-center;
+            margin-bottom: 200px;
+            .fb-btn{
+                margin: 10px 0;
+                @extend .cta;
+                background:#3B5998;
+                font-size: 14px;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                .fb{
+                    @extend .span-bg-setup;
+                    width: 16px;
+                    height: 16px;
+                    background-image: url('/img/fb-btn.svg');
+                    background-size: contain;
+                    margin-right: 10px;
+                }
+            }
+            .g-btn{
+                margin: 10px 0;
+                @extend .cta;
+                background-color: #2D86F4;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                .g{
+                    @extend .span-bg-setup;
+                    width: 16px;
+                    height: 16px;
+                    background-image: url('/img/g-btn.svg');
+                    background-size: contain;
+                    margin-right: 10px;
+                }
+            }
+            .aw-btn{
+                margin:10px 0;
+                @extend .cta;
+                background: #D07F1E;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
